@@ -63,7 +63,7 @@ extension CategoriesFoodVC {
 
 extension CategoriesFoodVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.showListFoodVC(view: self)
+        presenter.showListFoodVC(view: self, indexPath: indexPath.item)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -73,9 +73,9 @@ extension CategoriesFoodVC: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CategoriesFoodCell.self), for: indexPath) as! CategoriesFoodCell
         
-        let userAction = presenter.recipeType[indexPath.item]
+        let typeFood = presenter.recipeType[indexPath.item]
         
-        cell.config(with: userAction.rawValue, type: userAction)
+        cell.config(with: typeFood.rawValue, type: typeFood)
         
         return cell
     }

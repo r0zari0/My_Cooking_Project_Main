@@ -13,7 +13,7 @@ import UIKit
 protocol CategoriesFoodPresenterProtocol {
     var recipeType: [RecipeType] { get }
     
-    func showListFoodVC(view: UIViewController)
+    func showListFoodVC(view: UIViewController, indexPath: Int)
 }
 
 // MARK: - CategoriesFoodPresenter
@@ -29,7 +29,9 @@ class CategoriesFoodPresenter: CategoriesFoodPresenterProtocol {
         self.navigator = navigator
     }
     
-    func showListFoodVC(view: UIViewController) {
-        navigator.showListFoodVC(view: view)
+    func showListFoodVC(view: UIViewController, indexPath: Int) {
+        let index = recipeType[indexPath]
+        
+        navigator.showListFoodVC(view: view, type: index)
     }
 }

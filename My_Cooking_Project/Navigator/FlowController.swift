@@ -37,7 +37,7 @@ class FlowController: UIViewController, UITabBarControllerDelegate {
         super.viewDidLoad()
         initialSetup()
         setupTabBar()
-//        setUIAppearanceCustomNavBar(type: .opaque)
+        //        setUIAppearanceCustomNavBar(type: .opaque)
     }
     
     func setupTabBar() {
@@ -61,10 +61,14 @@ extension FlowController {
     }
     
     func favoriteListFoodVC() -> UIViewController {
-        let presenter = ListFoodPresenter(navigator: navigator, networking: networking)
+        let presenter = ListFoodPresenter(
+            type: .chicken,
+            navigator: navigator,
+            networking: networking
+        )
         
-        let vc = ListFoodVC(presenter: presenter)
-
+        let vc = ListFoodVC(presenter: presenter, networking: networking)
+        
         let navigationVC = UINavigationController(rootViewController: vc)
         vc.tabBarItem = UITabBarItem(
             title: "Favorites", image: UIImage(named: "heart"),

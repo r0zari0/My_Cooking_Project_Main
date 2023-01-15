@@ -30,7 +30,7 @@ class ListFoodVC: UIViewController {
     
     //MARK: - Init
     
-    init(presenter: ListFoodPresenterProtocol) {
+    init(presenter: ListFoodPresenterProtocol, networking: NetworkingProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,6 +44,8 @@ class ListFoodVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        presenter.getInternetRecipe()
+        view.showActivityIndicator()
     }
 }
 
@@ -56,6 +58,8 @@ extension ListFoodVC {
     }
     
     func setupTableView() {
+        listFoodTableView.layer.opacity = 0
+        
         listFoodTableView.dataSource = self
         listFoodTableView.delegate = self
         listFoodTableView.register(.init(nibName: String(describing: cellIdentifier), bundle: nil), forCellReuseIdentifier: cellIdentifier)

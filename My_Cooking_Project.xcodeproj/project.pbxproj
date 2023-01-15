@@ -38,6 +38,7 @@
 		C375491829707454007166E4 /* ListFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C375491629707454007166E4 /* ListFoodCell.xib */; };
 		C375491A29707DB6007166E4 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C375491929707DB6007166E4 /* ImageView.swift */; };
 		C375491E2970842C007166E4 /* View+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C375491D2970842C007166E4 /* View+ActivityIndicator.swift */; };
+		C37DEB732973C3CE004D1206 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37DEB722973C3CE004D1206 /* ScreenType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		C375491629707454007166E4 /* ListFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFoodCell.xib; sourceTree = "<group>"; };
 		C375491929707DB6007166E4 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C375491D2970842C007166E4 /* View+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		C37DEB722973C3CE004D1206 /* ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				C37548F3296CE810007166E4 /* Model.swift */,
 				C3754908296E780B007166E4 /* RecipeType.swift */,
+				C37DEB722973C3CE004D1206 /* ScreenType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				C37548EC296CD56A007166E4 /* ProfilePresenter.swift in Sources */,
 				C37548D4296C8B26007166E4 /* Navigator.swift in Sources */,
 				C37548D6296C8C2D007166E4 /* Assembler.swift in Sources */,
+				C37DEB732973C3CE004D1206 /* ScreenType.swift in Sources */,
 				C37548E6296CD546007166E4 /* CategoriesFoodPresenter.swift in Sources */,
 				C375490F296E8784007166E4 /* CategoriesFoodCell.swift in Sources */,
 				C37548DE296CD426007166E4 /* FlowController.swift in Sources */,

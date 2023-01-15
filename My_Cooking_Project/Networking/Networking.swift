@@ -10,7 +10,7 @@ import Foundation
 // MARK: - NetworkingProtocol
 
 protocol NetworkingProtocol {
-    
+    func getModel(type: RecipeType, closure: @escaping ([Hit]) -> ())
 }
 
 // MARK: - Networking

@@ -35,9 +35,9 @@ class Assembler {
         return vc
     }
     
-    func createListFoodVC(navigator: NavigatorProtocol) -> UIViewController {
-        let presenter = ListFoodPresenter(navigator: navigator, networking: networking)
-        let vc = ListFoodVC(presenter: presenter)
+    func createListFoodVC(navigator: NavigatorProtocol, type: RecipeType) -> UIViewController {
+        let presenter = ListFoodPresenter(type: type, navigator: navigator, networking: networking)
+        let vc = ListFoodVC(presenter: presenter, networking: networking)
         
         return vc
     }
