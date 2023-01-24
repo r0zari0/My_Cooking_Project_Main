@@ -54,6 +54,8 @@ extension CategoriesFoodVC {
     }
     
     func setupCollectionView() {
+        typeCollectionView.showsVerticalScrollIndicator = false
+        
         typeCollectionView.delegate = self
         typeCollectionView.dataSource = self
         typeCollectionView.register(.init(nibName: String(describing: CategoriesFoodCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: CategoriesFoodCell.self))
@@ -63,7 +65,7 @@ extension CategoriesFoodVC {
 
 extension CategoriesFoodVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.showListFoodVC(view: self, indexPath: indexPath.item)
+        presenter.showListFoodVC(view: self, indexPath: indexPath.item, screenType: .internetRecipe)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

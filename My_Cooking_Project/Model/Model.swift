@@ -40,22 +40,22 @@ struct Recipe: Decodable {
         self.id = UUID()
     }
 
-//    init(recipe: LikedFoodCD) {
-//        self.label = recipe.recipeName ?? ""
-//        self.image = recipe.recipeImage ?? ""
-//        self.source = recipe.recipeAuthor ?? ""
-//        self.calories = recipe.calories
-//        self.totalWeight = recipe.totalWeight
-//        self.totalTime = recipe.totalTime
-//        self.url = recipe.url
-//        self.id = recipe.id ?? UUID()
+    init(recipe: LikedFoodCD) {
+        self.label = recipe.recipeName ?? ""
+        self.image = recipe.recipeImage ?? ""
+        self.source = recipe.recipeAuthor ?? ""
+        self.calories = recipe.calories
+        self.totalWeight = recipe.totalWeight
+        self.totalTime = recipe.totalTime
+        self.url = recipe.url
+        self.id = recipe.id ?? UUID()
         
         
-//        let ingredientCD = recipe.likedIngredients.array(of: LikedIngredientCD.self)
-//        let appIngredients = ingredientCD.map { Ingredient(ingredientCD: $0) }
-//
-//        self.ingredients = appIngredients
-//    }
+        let ingredientCD = recipe.likedIngredient.array(of: IngredientCD.self)
+        let appIngredients = ingredientCD.map { Ingredient(ingredientCD: $0) }
+
+        self.ingredients = appIngredients
+    }
 }
 
 struct Ingredient: Decodable {
@@ -67,10 +67,10 @@ struct Ingredient: Decodable {
         self.text = text
     }
     
-//    init(ingredientCD: LikedIngredientCD) {
-//        self.text = ingredientCD.text ?? ""
-//        self.image = ingredientCD.image
-//    }
+    init(ingredientCD: IngredientCD) {
+        self.text = ingredientCD.text ?? ""
+        self.image = ingredientCD.image
+    }
 }
 
 extension Optional where Wrapped == NSSet {

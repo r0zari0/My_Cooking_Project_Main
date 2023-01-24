@@ -23,7 +23,11 @@ class Assembler {
     }
     
     func createTabBarScreen(navigator: NavigatorProtocol) -> UIViewController {
-        let vc = FlowController(navigator: navigator, networking: networking, coreData: coreData)
+        let vc = FlowController(
+            navigator: navigator,
+            networking: networking,
+            coreData: coreData
+        )
         
         return vc
     }
@@ -35,10 +39,32 @@ class Assembler {
         return vc
     }
     
-    func createListFoodVC(navigator: NavigatorProtocol, type: RecipeType) -> UIViewController {
-        let presenter = ListFoodPresenter(type: type, navigator: navigator, networking: networking)
+    func createListFoodVC(navigator: NavigatorProtocol, type: RecipeType, screenType: ScreenType) -> UIViewController {
+        let presenter = ListFoodPresenter(
+            type: type,
+            navigator: navigator,
+            networking: networking,
+            coreData: coreData,
+            screenType: screenType
+        )
+        
         let vc = ListFoodVC(presenter: presenter, networking: networking)
+        presenter.view = vc
         
         return vc
+    }
+    
+    func createRecipeDetailsVC(recipe: Recipe, navigator: NavigatorProtocol) -> UIViewController {
+        let presenter = RecipeDetailsPresenter(
+            detailedRecipe: recipe,
+            navigator: navigator,
+            networking: networking,
+            coreData: coreData
+        )
+        
+        let vc = RecipeDetailsVC(presenter: presenter)
+        
+        return vc
+        
     }
 }

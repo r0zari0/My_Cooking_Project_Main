@@ -20,6 +20,8 @@ class ListFoodVC: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var emptyLabel: UILabel!
+    
     @IBOutlet weak var listFoodTableView: UITableView!
     
     // MARK: - Properties
@@ -44,8 +46,26 @@ class ListFoodVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        presenter.getInternetRecipe()
+        
+        if presenter.screenType == .internetRecipe {
+            presenter.getInternetRecipes()
+        }
+        
         view.showActivityIndicator()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if presenter.screenType == .favoriteRecipe {
+            presenter.getRecipesCD()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        hidesBottomBarWhenPushed = false
     }
 }
 
@@ -58,6 +78,7 @@ extension ListFoodVC {
     }
     
     func setupTableView() {
+        listFoodTableView.showsVerticalScrollIndicator = false
         listFoodTableView.layer.opacity = 0
         
         listFoodTableView.dataSource = self
@@ -67,6 +88,10 @@ extension ListFoodVC {
 }
 
 extension ListFoodVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.showRecipeDetailsVC(view: self, recipe: presenter.foodRecipes[indexPath.row].recipe)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.foodRecipes.count
     }
@@ -93,9 +118,9 @@ extension ListFoodVC: ListFoodVCProtocol {
         UIView.animate(withDuration: 2) {
             self.listFoodTableView.layer.opacity = 1
 
-//            if self.presenter.screenType == .favoriteRecipe {
-//                self.emptyLabel.isHidden = !self.presenter.foodRecipes.isEmpty
-//            }
+            if self.presenter.screenType == .favoriteRecipe {
+               self.emptyLabel.isHidden = !self.presenter.foodRecipes.isEmpty
+            }
         }
     }
 }

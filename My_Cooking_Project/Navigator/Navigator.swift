@@ -12,7 +12,8 @@ import UIKit
 
 protocol NavigatorProtocol {
     func showCategoriesFoodVC(view: UIViewController)
-    func showListFoodVC(view: UIViewController, type: RecipeType)
+    func showListFoodVC(view: UIViewController, type: RecipeType, screenType: ScreenType)
+    func showRecipeDetailsVC(view: UIViewController, recipe: Recipe)
 }
 
 // MARK: - Navigator
@@ -35,8 +36,14 @@ class Navigator: NavigatorProtocol {
         view.navigationController?.present(vc, animated: true)
     }
     
-    func showListFoodVC(view: UIViewController, type: RecipeType) {
-        let vc = assembler.createListFoodVC(navigator: self, type: type)
+    func showListFoodVC(view: UIViewController, type: RecipeType, screenType: ScreenType) {
+        let vc = assembler.createListFoodVC(navigator: self, type: type, screenType: screenType)
+        
+        view.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showRecipeDetailsVC(view: UIViewController, recipe: Recipe) {
+        let vc = assembler.createRecipeDetailsVC(recipe: recipe, navigator: self)
         
         view.navigationController?.pushViewController(vc, animated: true)
     }

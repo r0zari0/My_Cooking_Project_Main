@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListFoodVC" customModule="My_Cooking_Project" customModuleProvider="target">
             <connections>
+                <outlet property="emptyLabel" destination="T5O-10-5bv" id="q4H-k1-oao"/>
                 <outlet property="listFoodTableView" destination="1K6-Y0-CT0" id="m6h-W8-6pf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,20 +23,33 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1K6-Y0-CT0">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have favourite recipe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-10-5bv">
+                    <rect key="frame" x="16" y="423.66666666666669" width="361" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
+                <constraint firstItem="T5O-10-5bv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4or-gh-aBR"/>
+                <constraint firstItem="T5O-10-5bv" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="6zo-ri-2Gi"/>
                 <constraint firstItem="1K6-Y0-CT0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rhq-xg-6qF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T5O-10-5bv" secondAttribute="trailing" constant="16" id="YGG-xO-v4M"/>
                 <constraint firstItem="1K6-Y0-CT0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="iVo-Xa-dEK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1K6-Y0-CT0" secondAttribute="bottom" id="ncP-ab-gsO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1K6-Y0-CT0" secondAttribute="trailing" id="pZl-6a-r2f"/>
             </constraints>
-            <point key="canvasLocation" x="58" y="21"/>
+            <point key="canvasLocation" x="57.251908396946561" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
