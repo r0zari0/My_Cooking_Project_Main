@@ -21,6 +21,8 @@ class FlowController: UIViewController, UITabBarControllerDelegate {
     let networking: NetworkingProtocol
     let coreData: CoreDataStoreProtocol
     
+    //MARK: - Init
+    
     init(navigator: NavigatorProtocol, networking: NetworkingProtocol, coreData: CoreDataStoreProtocol) {
         self.navigator = navigator
         self.networking = networking
@@ -32,6 +34,7 @@ class FlowController: UIViewController, UITabBarControllerDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

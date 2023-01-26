@@ -13,6 +13,7 @@ import CoreData
 protocol CoreDataStoreProtocol {
     var context: NSManagedObjectContext { get }
     
+//    func deleteRecipe(id: UUID)
     func saveContext()
     func fetchRecipes(completion: @escaping (([LikedFoodCD]) -> Void))
     func deleteRecipe(label: String)
@@ -87,14 +88,14 @@ class CoreDataStore: CoreDataStoreProtocol {
     
     func deleteRecipe(label: String) {
 
-        let fetheRequest: NSFetchRequest<LikedFoodCD> = LikedFoodCD.fetchRequest()
+        let fetchRequest: NSFetchRequest<LikedFoodCD> = LikedFoodCD.fetchRequest()
 
-        fetheRequest.predicate = NSPredicate(format: "recipeName == %@", label as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "recipeName == %@", label as CVarArg)
         
         let context = persistentContainer.viewContext
         
         do {
-            let recipes = try context.fetch(fetheRequest)
+            let recipes = try context.fetch(fetchRequest)
             for recipe in recipes {
                 context.delete(recipe)
             }
@@ -104,6 +105,26 @@ class CoreDataStore: CoreDataStoreProtocol {
             print(error)
         }
     }
+    
+//    func deleteRecipe(id: UUID) {
+//
+//        let fetchRequest: NSFetchRequest<LikedFoodCD> = LikedFoodCD.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+//
+//        let context = persistentContainer.viewContext
+//
+//        do {
+//            let recipes = try context.fetch(fetchRequest)
+//            for recipe in recipes {
+//                context.delete(recipe)
+//                print("DELETE -----------------------------")
+//            }
+//            saveContext()
+//            print("Delete")
+//        } catch let error {
+//            print(error)
+//        }
+//    }
 }
 
 

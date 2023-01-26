@@ -14,6 +14,7 @@ protocol ListFoodPresenterProtocol {
     var screenType: ScreenType { get }
     var foodRecipes: [Hit] { get }
     
+    func deleteRecipeInDataBase(indexPath: IndexPath, closure: () -> Void)
     func getInternetRecipes()
     func getRecipesCD()
     func showRecipeDetailsVC(view: UIViewController, recipe: Recipe)
@@ -75,4 +76,13 @@ extension ListFoodPresenter {
         navigator.showRecipeDetailsVC(view: view, recipe: recipe)
     }
     
+    func deleteRecipeInDataBase(indexPath: IndexPath, closure: () -> Void) {
+
+        coreData.deleteRecipe(label: foodRecipes[indexPath.row].recipe.label)
+        foodRecipes.remove(at: indexPath.row)
+        
+        coreData.saveContext()
+                
+        closure()
+    }
 }

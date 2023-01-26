@@ -12,6 +12,8 @@
 		C33C7EE32977492F00E80191 /* RecipeDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33C7EE22977492F00E80191 /* RecipeDetailsPresenter.swift */; };
 		C33C7EEC297BB6E000E80191 /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33C7EEA297BB6E000E80191 /* IngredientsTableViewCell.swift */; };
 		C33C7EED297BB6E000E80191 /* IngredientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C33C7EEB297BB6E000E80191 /* IngredientsTableViewCell.xib */; };
+		C33C7EF92982D51200E80191 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33C7EF72982D51200E80191 /* WebViewVC.swift */; };
+		C33C7EFA2982D51200E80191 /* WebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C33C7EF82982D51200E80191 /* WebViewVC.xib */; };
 		C37548B3296C71F3007166E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37548B2296C71F3007166E4 /* AppDelegate.swift */; };
 		C37548B5296C71F3007166E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37548B4296C71F3007166E4 /* SceneDelegate.swift */; };
 		C37548BD296C71F3007166E4 /* My_Cooking_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C37548BB296C71F3007166E4 /* My_Cooking_Project.xcdatamodeld */; };
@@ -59,6 +61,8 @@
 		C33C7EE22977492F00E80191 /* RecipeDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsPresenter.swift; sourceTree = "<group>"; };
 		C33C7EEA297BB6E000E80191 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		C33C7EEB297BB6E000E80191 /* IngredientsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsTableViewCell.xib; sourceTree = "<group>"; };
+		C33C7EF72982D51200E80191 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		C33C7EF82982D51200E80191 /* WebViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewVC.xib; sourceTree = "<group>"; };
 		C37548AF296C71F3007166E4 /* My_Cooking_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Cooking_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37548B2296C71F3007166E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C37548B4296C71F3007166E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 			path = IngredientsTableViewCell;
 			sourceTree = "<group>";
 		};
+		C33C7EEE2982D47300E80191 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				C33C7EF72982D51200E80191 /* WebViewVC.swift */,
+				C33C7EF82982D51200E80191 /* WebViewVC.xib */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		C37548A6296C71F3007166E4 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +181,7 @@
 		C37548C9296C75F9007166E4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C33C7EEE2982D47300E80191 /* WebView */,
 				C33C7EDD297748CF00E80191 /* RecipeDetailsVC */,
 				C37548E0296CD4DA007166E4 /* ListFoodVC */,
 				C37548DF296CD4CE007166E4 /* ProfileVC */,
@@ -376,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C33C7EED297BB6E000E80191 /* IngredientsTableViewCell.xib in Resources */,
+				C33C7EFA2982D51200E80191 /* WebViewVC.xib in Resources */,
 				C37548E4296CD51E007166E4 /* CategoriesFoodVC.xib in Resources */,
 				C33C7EE12977490000E80191 /* RecipeDetailsVC.xib in Resources */,
 				C37548C2296C71F4007166E4 /* LaunchScreen.storyboard in Resources */,
@@ -412,6 +427,7 @@
 				C37548D6296C8C2D007166E4 /* Assembler.swift in Sources */,
 				C37DEB732973C3CE004D1206 /* ScreenType.swift in Sources */,
 				C37548E6296CD546007166E4 /* CategoriesFoodPresenter.swift in Sources */,
+				C33C7EF92982D51200E80191 /* WebViewVC.swift in Sources */,
 				C37DEB7F297517A8004D1206 /* TabBarAppearance.swift in Sources */,
 				C37DEB79297514AB004D1206 /* IngredientCD+CoreDataProperties.swift in Sources */,
 				C37DEB81297517F4004D1206 /* ButtonCustomColor.swift in Sources */,

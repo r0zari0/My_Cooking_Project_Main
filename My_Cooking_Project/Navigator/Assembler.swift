@@ -65,6 +65,11 @@ class Assembler {
         let vc = RecipeDetailsVC(presenter: presenter)
         
         return vc
+    }
+    
+    func createWebViewVC(url: String) -> UIViewController {
+        let vc = WebViewVC(url: url)
         
+        return vc
     }
 }

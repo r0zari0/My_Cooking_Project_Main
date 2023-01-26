@@ -85,6 +85,7 @@ extension RecipeDetailsVC {
     
     @objc
     private func goToTheInternet() {
+        presenter.showWebView(view: self)
     }
     
     func createRightBurButton() {

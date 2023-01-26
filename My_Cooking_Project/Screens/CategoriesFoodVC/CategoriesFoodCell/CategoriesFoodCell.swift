@@ -30,6 +30,8 @@ class CategoriesFoodCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Extension
+
 extension CategoriesFoodCell {
     func setupUI() {
         typeFoodLabel.textColor = .white

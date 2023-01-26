@@ -7,9 +7,21 @@
 
 import UIKit
 
-class ProfileVC: UIViewController {
+// MARK: - ProfileVC
 
+class ProfileVC: UIViewController {
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var githubButton: UIButton!
+    @IBOutlet weak var linkedinButton: UIButton!
+    @IBOutlet weak var gmailButton: UIButton!
+    
+    // MARK: - Properties
+    
     let presenter: ProfilePresenterProtocol
+    
+    // MARK: - Init
     
     init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter
@@ -20,7 +32,16 @@ class ProfileVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButtons()
+    }
+    
+    func setupButtons() {
+        githubButton.setImage(UIImage(named: "github"), for: .normal)
+        linkedinButton.setImage(UIImage(named: "linkedin"), for: .normal)
+        gmailButton.setImage(UIImage(named: "gmail"), for: .normal)
     }
 }

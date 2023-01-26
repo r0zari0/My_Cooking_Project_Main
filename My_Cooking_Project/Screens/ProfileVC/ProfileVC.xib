@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="My_Cooking_Project" customModuleProvider="target">
             <connections>
+                <outlet property="githubButton" destination="u3q-Jd-5eB" id="aLS-M8-eaj"/>
+                <outlet property="gmailButton" destination="HwI-Cw-LlO" id="F9d-Cc-7Qc"/>
+                <outlet property="linkedinButton" destination="WV8-Cb-osl" id="yb7-2w-JTE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -109,7 +112,7 @@
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO5-zv-kUt">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github: https://github.com/r0zari0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO5-zv-kUt">
                                     <rect key="frame" x="0.0" y="61.999999999999943" width="361" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="textColor"/>
@@ -119,14 +122,37 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8OU-iA-k6f">
+                    <rect key="frame" x="16" y="646.66666666666663" width="361" height="34.333333333333371"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwI-Cw-LlO">
+                            <rect key="frame" x="0.0" y="0.0" width="117" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WV8-Cb-osl">
+                            <rect key="frame" x="122" y="0.0" width="117" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3q-Jd-5eB">
+                            <rect key="frame" x="244" y="0.0" width="117" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="nVD-dO-QWK" firstAttribute="leading" secondItem="pbp-1S-DLG" secondAttribute="trailing" constant="16" id="1cb-Ax-cE8"/>
                 <constraint firstItem="IRc-5y-Vt7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="CzQ-fD-bnj"/>
+                <constraint firstItem="8OU-iA-k6f" firstAttribute="top" secondItem="IRc-5y-Vt7" secondAttribute="bottom" constant="70" id="Ekc-lm-ulU"/>
                 <constraint firstItem="IRc-5y-Vt7" firstAttribute="top" secondItem="iZs-rU-ZVc" secondAttribute="bottom" constant="16" id="I10-sY-FdX"/>
+                <constraint firstItem="8OU-iA-k6f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WtK-Rc-yK5"/>
                 <constraint firstItem="IA6-HD-cb4" firstAttribute="top" secondItem="pbp-1S-DLG" secondAttribute="bottom" constant="24" id="ZOl-Rk-s6Z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8OU-iA-k6f" secondAttribute="trailing" constant="16" id="b7z-Wj-PEH"/>
                 <constraint firstItem="pbp-1S-DLG" firstAttribute="top" secondItem="lM5-Cs-bYt" secondAttribute="bottom" constant="15" id="fYR-40-ULy"/>
                 <constraint firstItem="pbp-1S-DLG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="hVR-fx-JkV"/>
                 <constraint firstItem="iZs-rU-ZVc" firstAttribute="top" secondItem="IA6-HD-cb4" secondAttribute="bottom" constant="16" id="ky0-zI-ZaR"/>

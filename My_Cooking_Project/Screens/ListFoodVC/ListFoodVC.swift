@@ -47,25 +47,23 @@ class ListFoodVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        if presenter.screenType == .internetRecipe {
-            presenter.getInternetRecipes()
-        }
-        
         view.showActivityIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if presenter.screenType == .favoriteRecipe {
+
+        if presenter.screenType == .internetRecipe {
+            presenter.getInternetRecipes()
+        } else {
             presenter.getRecipesCD()
+            setupTitle(title: "Favorits recipes")
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        hidesBottomBarWhenPushed = false
     }
 }
 
@@ -103,6 +101,32 @@ extension ListFoodVC: UITableViewDelegate, UITableViewDataSource {
         cell.config(recipe: foodRecipes.recipe)
         
         return cell 
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if self.presenter.screenType == .favoriteRecipe {
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, closure in
+                self.presenter.deleteRecipeInDataBase(indexPath: indexPath) {
+
+                    DispatchQueue.main.async {
+                        self.listFoodTableView.deleteRows(at: [indexPath], with: .automatic)
+                        self.reload()
+                    }
+                }
+                
+                closure(true)
+            }
+            
+            deleteAction.image = UIImage(systemName: "trash")!
+            deleteAction.backgroundColor = .systemRed
+            
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            configuration.performsFirstActionWithFullSwipe = true
+            
+            return configuration
+        } else {
+            return nil
+        }
     }
 }
 

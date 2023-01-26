@@ -14,6 +14,7 @@ protocol NavigatorProtocol {
     func showCategoriesFoodVC(view: UIViewController)
     func showListFoodVC(view: UIViewController, type: RecipeType, screenType: ScreenType)
     func showRecipeDetailsVC(view: UIViewController, recipe: Recipe)
+    func showWebViewVC(view: UIViewController, url: String)
 }
 
 // MARK: - Navigator
@@ -39,12 +40,19 @@ class Navigator: NavigatorProtocol {
     func showListFoodVC(view: UIViewController, type: RecipeType, screenType: ScreenType) {
         let vc = assembler.createListFoodVC(navigator: self, type: type, screenType: screenType)
         
+        vc.hidesBottomBarWhenPushed = true
         view.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showRecipeDetailsVC(view: UIViewController, recipe: Recipe) {
         let vc = assembler.createRecipeDetailsVC(recipe: recipe, navigator: self)
         
+        view.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showWebViewVC(view: UIViewController, url: String) {
+        let vc = assembler.createWebViewVC(url: url)
+        view.hidesBottomBarWhenPushed = true
         view.navigationController?.pushViewController(vc, animated: true)
     }
 }
