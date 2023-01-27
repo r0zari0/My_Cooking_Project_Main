@@ -15,7 +15,7 @@ class StartVC: UIViewController {
     
     @IBOutlet weak var startImageView: UIImageView!
     
-      // MARK: - Properties
+    // MARK: - Properties
     
     let presenter: StartPresenterProtocol
     

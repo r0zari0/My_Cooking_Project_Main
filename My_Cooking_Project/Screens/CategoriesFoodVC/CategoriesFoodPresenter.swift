@@ -23,7 +23,7 @@ class CategoriesFoodPresenter: CategoriesFoodPresenterProtocol {
     let recipeType = RecipeType.allCases
     
     private let navigator: NavigatorProtocol
-   
+    
     
     init(navigator: NavigatorProtocol) {
         self.navigator = navigator

@@ -29,6 +29,6 @@ class StartPresenter: StartPresenterProtocol {
     }
     
     func showCategoriesFoodVC(view: UIViewController) {
-        let vc = navigator.showCategoriesFoodVC(view: view)
+        navigator.showCategoriesFoodVC(view: view)
     }
 }

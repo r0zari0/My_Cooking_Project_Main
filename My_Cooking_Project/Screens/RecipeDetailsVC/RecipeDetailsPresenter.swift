@@ -50,14 +50,14 @@ class RecipeDetailsPresenter: RecipeDetailsPresenterProtocol {
 
 // MARK: - Extension
 
-extension RecipeDetailsPresenter: ProfilePresenterProtocol {
+extension RecipeDetailsPresenter {
     
     func saveRecipeInDataBase() {
         guard !coreData.fetchRequestIfConsistElement(with: detailedRecipe.label) else {
             coreData.deleteRecipe(label: detailedRecipe.label)
             return
         }
-                
+        
         let recipeDataBase = LikedFoodCD(context: coreData.context)
         recipeDataBase.recipeName = detailedRecipe.label
         recipeDataBase.recipeImage = detailedRecipe.image

@@ -40,8 +40,28 @@ class ProfileVC: UIViewController {
     }
     
     func setupButtons() {
+        githubButton.setTitle("", for: .normal)
+        linkedinButton.setTitle("", for: .normal)
+        gmailButton.setTitle("", for: .normal)
+        
         githubButton.setImage(UIImage(named: "github"), for: .normal)
         linkedinButton.setImage(UIImage(named: "linkedin"), for: .normal)
         gmailButton.setImage(UIImage(named: "gmail"), for: .normal)
     }
+}
+
+extension ProfileVC {
+    
+    @IBAction func goGmailButton() {
+        presenter.showGmail(view: self)
+    }
+    
+    @IBAction func goGithubButton() {
+        presenter.showGithub(view: self)
+    }
+    
+    @IBAction func goLinkedinButton() {
+        presenter.showLinkedin(view: self)
+    }
+    
 }

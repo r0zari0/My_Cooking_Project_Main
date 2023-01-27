@@ -8,10 +8,16 @@
 import UIKit
 import WebKit
 
-class WebViewVC: UIViewController, WKNavigationDelegate {
+// MARK: - Init
 
+class WebViewVC: UIViewController, WKNavigationDelegate {
+    
+      // MARK: - Properties
+    
     var webView: WKWebView!
     private let url: String
+    
+    // MARK: - Init
     
     init(url: String) {
         self.url = url
@@ -27,6 +33,8 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         webView.navigationDelegate = self
         view = webView
     }
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

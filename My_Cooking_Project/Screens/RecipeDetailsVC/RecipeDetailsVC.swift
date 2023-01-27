@@ -93,7 +93,7 @@ extension RecipeDetailsVC {
     }
     
     @objc
-    func addTapped(){
+    func addTapped() {
         presenter.isFavorite.toggle()
         createRightBurButton()
         presenter.saveRecipeInDataBase()

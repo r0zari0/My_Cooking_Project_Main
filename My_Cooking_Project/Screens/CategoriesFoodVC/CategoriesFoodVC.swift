@@ -67,7 +67,7 @@ extension CategoriesFoodVC: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.showListFoodVC(view: self, indexPath: indexPath.item, screenType: .internetRecipe)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.recipeType.count
     }

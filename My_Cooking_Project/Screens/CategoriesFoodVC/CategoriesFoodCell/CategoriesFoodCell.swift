@@ -10,7 +10,7 @@ import UIKit
 // MARK: - CategoriesFoodCell
 
 class CategoriesFoodCell: UICollectionViewCell {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var typeFoodImage: UIImageView!

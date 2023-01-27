@@ -9,7 +9,7 @@ import UIKit
 // MARK: - ListFoodCell
 
 class ListFoodCell: UITableViewCell {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var recipeImage: ImageView!

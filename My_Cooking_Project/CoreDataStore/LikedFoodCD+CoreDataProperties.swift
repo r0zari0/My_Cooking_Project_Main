@@ -2,7 +2,7 @@
 //  LikedFoodCD+CoreDataProperties.swift
 //  My_Cooking_Project
 //
-//  Created by Max Stovolos on 1/16/23.
+//  Created by Max Stovolos on 1/26/23.
 //
 //
 
@@ -17,7 +17,6 @@ extension LikedFoodCD {
     }
 
     @NSManaged public var calories: Double
-    @NSManaged public var id: UUID?
     @NSManaged public var recipeAuthor: String?
     @NSManaged public var recipeImage: String?
     @NSManaged public var recipeName: String?

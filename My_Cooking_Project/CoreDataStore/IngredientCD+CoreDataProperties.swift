@@ -2,7 +2,7 @@
 //  IngredientCD+CoreDataProperties.swift
 //  My_Cooking_Project
 //
-//  Created by Max Stovolos on 1/16/23.
+//  Created by Max Stovolos on 1/26/23.
 //
 //
 

@@ -77,12 +77,12 @@ extension ListFoodPresenter {
     }
     
     func deleteRecipeInDataBase(indexPath: IndexPath, closure: () -> Void) {
-
+        
         coreData.deleteRecipe(label: foodRecipes[indexPath.row].recipe.label)
         foodRecipes.remove(at: indexPath.row)
         
         coreData.saveContext()
-                
+        
         closure()
     }
 }

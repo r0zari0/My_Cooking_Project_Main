@@ -7,7 +7,7 @@
 
 import UIKit
 
-  // MARK: - Protocol
+// MARK: - Protocol
 
 protocol ListFoodVCProtocol: AnyObject {
     func reload()
@@ -52,7 +52,7 @@ class ListFoodVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         if presenter.screenType == .internetRecipe {
             presenter.getInternetRecipes()
         } else {
@@ -107,7 +107,7 @@ extension ListFoodVC: UITableViewDelegate, UITableViewDataSource {
         if self.presenter.screenType == .favoriteRecipe {
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, closure in
                 self.presenter.deleteRecipeInDataBase(indexPath: indexPath) {
-
+                    
                     DispatchQueue.main.async {
                         self.listFoodTableView.deleteRows(at: [indexPath], with: .automatic)
                         self.reload()
@@ -141,9 +141,9 @@ extension ListFoodVC: ListFoodVCProtocol {
         
         UIView.animate(withDuration: 2) {
             self.listFoodTableView.layer.opacity = 1
-
+            
             if self.presenter.screenType == .favoriteRecipe {
-               self.emptyLabel.isHidden = !self.presenter.foodRecipes.isEmpty
+                self.emptyLabel.isHidden = !self.presenter.foodRecipes.isEmpty
             }
         }
     }

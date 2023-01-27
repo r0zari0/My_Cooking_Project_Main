@@ -89,7 +89,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRc-5y-Vt7">
-                    <rect key="frame" x="16" y="449.33333333333331" width="361" height="127.33333333333331"/>
+                    <rect key="frame" x="16" y="449.33333333333326" width="361" height="144"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aH-jN-mn3">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
@@ -98,22 +98,22 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="fGt-4h-3pr">
-                            <rect key="frame" x="0.0" y="48.333333333333371" width="361" height="79"/>
+                            <rect key="frame" x="0.0" y="48.333333333333378" width="361" height="95.666666666666686"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linkedin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwb-Wa-J21">
-                                    <rect key="frame" x="0.0" y="0.0" width="361" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linkedin: www.linkedin.com/in/maksym-stovolos-3a7071241" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwb-Wa-J21">
+                                    <rect key="frame" x="0.0" y="0.0" width="361" height="33.666666666666664"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: rozarioAgro9072002@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKU-aw-c2N">
-                                    <rect key="frame" x="0.0" y="30.999999999999943" width="361" height="17"/>
+                                    <rect key="frame" x="0.0" y="47.666666666666686" width="361" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github: https://github.com/r0zari0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO5-zv-kUt">
-                                    <rect key="frame" x="0.0" y="61.999999999999943" width="361" height="17"/>
+                                    <rect key="frame" x="0.0" y="78.666666666666686" width="361" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -122,23 +122,38 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8OU-iA-k6f">
-                    <rect key="frame" x="16" y="646.66666666666663" width="361" height="34.333333333333371"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8OU-iA-k6f">
+                    <rect key="frame" x="16" y="643.33333333333337" width="361" height="34.333333333333371"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwI-Cw-LlO">
                             <rect key="frame" x="0.0" y="0.0" width="117" height="34.333333333333336"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button">
+                                <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="goGmailButton" destination="-1" eventType="touchUpInside" id="VCE-wd-Te9"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WV8-Cb-osl">
                             <rect key="frame" x="122" y="0.0" width="117" height="34.333333333333336"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button">
+                                <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="goLinkedinButton" destination="-1" eventType="touchUpInside" id="mwb-dK-gxE"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3q-Jd-5eB">
                             <rect key="frame" x="244" y="0.0" width="117" height="34.333333333333336"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button">
+                                <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="goGithubButton" destination="-1" eventType="touchUpInside" id="Pr5-j0-xzr"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
@@ -148,7 +163,7 @@
             <constraints>
                 <constraint firstItem="nVD-dO-QWK" firstAttribute="leading" secondItem="pbp-1S-DLG" secondAttribute="trailing" constant="16" id="1cb-Ax-cE8"/>
                 <constraint firstItem="IRc-5y-Vt7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="CzQ-fD-bnj"/>
-                <constraint firstItem="8OU-iA-k6f" firstAttribute="top" secondItem="IRc-5y-Vt7" secondAttribute="bottom" constant="70" id="Ekc-lm-ulU"/>
+                <constraint firstItem="8OU-iA-k6f" firstAttribute="top" secondItem="IRc-5y-Vt7" secondAttribute="bottom" constant="50" id="Ekc-lm-ulU"/>
                 <constraint firstItem="IRc-5y-Vt7" firstAttribute="top" secondItem="iZs-rU-ZVc" secondAttribute="bottom" constant="16" id="I10-sY-FdX"/>
                 <constraint firstItem="8OU-iA-k6f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WtK-Rc-yK5"/>
                 <constraint firstItem="IA6-HD-cb4" firstAttribute="top" secondItem="pbp-1S-DLG" secondAttribute="bottom" constant="24" id="ZOl-Rk-s6Z"/>

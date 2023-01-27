@@ -13,11 +13,10 @@ import CoreData
 protocol CoreDataStoreProtocol {
     var context: NSManagedObjectContext { get }
     
-//    func deleteRecipe(id: UUID)
     func saveContext()
     func fetchRecipes(completion: @escaping (([LikedFoodCD]) -> Void))
     func deleteRecipe(label: String)
-    func fetchRequestIfConsistElement(with label: String) -> Bool 
+    func fetchRequestIfConsistElement(with label: String) -> Bool
 }
 
 // MARK: - CoreDataStore
@@ -69,27 +68,27 @@ class CoreDataStore: CoreDataStoreProtocol {
     }
     
     func fetchRequestIfConsistElement(with label: String) -> Bool {
-
+        
         let fetchRequest: NSFetchRequest<LikedFoodCD> = LikedFoodCD.fetchRequest()
-
+        
         fetchRequest.predicate = NSPredicate(format: "recipeName == %@", label as CVarArg)
         fetchRequest.fetchLimit = 1
-
+        
         do {
             let count = try context.count(for: fetchRequest)
-
+            
             return count > 0
         } catch let error {
             print(error)
         }
-
+        
         return false
     }
     
     func deleteRecipe(label: String) {
-
+        
         let fetchRequest: NSFetchRequest<LikedFoodCD> = LikedFoodCD.fetchRequest()
-
+        
         fetchRequest.predicate = NSPredicate(format: "recipeName == %@", label as CVarArg)
         
         let context = persistentContainer.viewContext
@@ -105,26 +104,6 @@ class CoreDataStore: CoreDataStoreProtocol {
             print(error)
         }
     }
-    
-//    func deleteRecipe(id: UUID) {
-//
-//        let fetchRequest: NSFetchRequest<LikedFoodCD> = LikedFoodCD.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-//
-//        let context = persistentContainer.viewContext
-//
-//        do {
-//            let recipes = try context.fetch(fetchRequest)
-//            for recipe in recipes {
-//                context.delete(recipe)
-//                print("DELETE -----------------------------")
-//            }
-//            saveContext()
-//            print("Delete")
-//        } catch let error {
-//            print(error)
-//        }
-//    }
 }
 
 
