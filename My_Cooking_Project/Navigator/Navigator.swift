@@ -52,7 +52,7 @@ class Navigator: NavigatorProtocol {
     
     func showWebViewVC(view: UIViewController, url: String) {
         let vc = assembler.createWebViewVC(url: url)
-        view.hidesBottomBarWhenPushed = true
+        vc.hidesBottomBarWhenPushed = true
         view.navigationController?.pushViewController(vc, animated: true)
     }
 }
