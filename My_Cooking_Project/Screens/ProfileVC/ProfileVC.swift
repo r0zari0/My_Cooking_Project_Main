@@ -13,9 +13,10 @@ class ProfileVC: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var profileImage: UIImageView!
+    
     @IBOutlet weak var githubButton: UIButton!
     @IBOutlet weak var linkedinButton: UIButton!
-    @IBOutlet weak var gmailButton: UIButton!
     
     // MARK: - Properties
     
@@ -36,25 +37,28 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func setupUI() {
+        profileImage.layer.cornerRadius = profileImage.bounds.width / 2
     }
     
     func setupButtons() {
         githubButton.setTitle("", for: .normal)
         linkedinButton.setTitle("", for: .normal)
-        gmailButton.setTitle("", for: .normal)
         
         githubButton.setImage(UIImage(named: "github"), for: .normal)
         linkedinButton.setImage(UIImage(named: "linkedin"), for: .normal)
-        gmailButton.setImage(UIImage(named: "gmail"), for: .normal)
     }
 }
 
 extension ProfileVC {
-    
-    @IBAction func goGmailButton() {
-        presenter.showGmail(view: self)
-    }
     
     @IBAction func goGithubButton() {
         presenter.showGithub(view: self)

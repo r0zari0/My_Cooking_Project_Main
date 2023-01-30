@@ -12,7 +12,7 @@ import WebKit
 
 class WebViewVC: UIViewController, WKNavigationDelegate {
     
-      // MARK: - Properties
+    // MARK: - Properties
     
     var webView: WKWebView!
     private let url: String
@@ -41,5 +41,8 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         guard let urlInfo = URL(string: url)  else { return }
         webView.load(URLRequest(url: urlInfo))
         webView.allowsBackForwardNavigationGestures = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
 }

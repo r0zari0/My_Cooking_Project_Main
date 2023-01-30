@@ -12,8 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="My_Cooking_Project" customModuleProvider="target">
             <connections>
                 <outlet property="githubButton" destination="u3q-Jd-5eB" id="aLS-M8-eaj"/>
-                <outlet property="gmailButton" destination="HwI-Cw-LlO" id="F9d-Cc-7Qc"/>
                 <outlet property="linkedinButton" destination="WV8-Cb-osl" id="yb7-2w-JTE"/>
+                <outlet property="profileImage" destination="pbp-1S-DLG" id="4zF-5n-fXS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,7 +28,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pbp-1S-DLG">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my photo" translatesAutoresizingMaskIntoConstraints="NO" id="pbp-1S-DLG">
                     <rect key="frame" x="16" y="130.66666666666666" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="PRD-xu-RjM"/>
@@ -125,18 +125,8 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8OU-iA-k6f">
                     <rect key="frame" x="16" y="643.33333333333337" width="361" height="34.333333333333371"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwI-Cw-LlO">
-                            <rect key="frame" x="0.0" y="0.0" width="117" height="34.333333333333336"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button">
-                                <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </buttonConfiguration>
-                            <connections>
-                                <action selector="goGmailButton" destination="-1" eventType="touchUpInside" id="VCE-wd-Te9"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WV8-Cb-osl">
-                            <rect key="frame" x="122" y="0.0" width="117" height="34.333333333333336"/>
+                            <rect key="frame" x="0.0" y="0.0" width="178" height="34.333333333333336"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Button">
                                 <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -146,7 +136,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3q-Jd-5eB">
-                            <rect key="frame" x="244" y="0.0" width="117" height="34.333333333333336"/>
+                            <rect key="frame" x="183" y="0.0" width="178" height="34.333333333333336"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Button">
                                 <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -185,6 +175,7 @@
         </view>
     </objects>
     <resources>
+        <image name="my photo" width="735" height="898"/>
         <namedColor name="textColor">
             <color red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
