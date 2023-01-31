@@ -111,7 +111,15 @@ extension ListFoodVC {
 
 extension ListFoodVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.showRecipeDetailsVC(view: self, recipe: presenter.foodRecipes[indexPath.row].recipe)
+        let foodRecipe: Hit
+        
+        if isFiltering {
+            foodRecipe = filteredFoodRecipes[indexPath.row]
+        } else {
+            foodRecipe = presenter.foodRecipes[indexPath.row]
+        }
+        
+        presenter.showRecipeDetailsVC(view: self, recipe: foodRecipe.recipe) 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,8 +134,6 @@ extension ListFoodVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListFoodCell
         
         var foodRecipes: Hit
-        
-//        let foodRecipes = presenter.foodRecipes[indexPath.row]
         
         if isFiltering {
             foodRecipes = filteredFoodRecipes[indexPath.row]
