@@ -26,8 +26,21 @@ class ListFoodVC: UIViewController {
     
     // MARK: - Properties
     
+    var filteredFoodRecipes: [Hit] = []
+    
+    var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
     private let presenter: ListFoodPresenterProtocol
     
+    private let searchController = UISearchController.init(searchResultsController: nil)
+
     private let cellIdentifier: String = String(describing: "ListFoodCell")
     
     //MARK: - Init
@@ -46,6 +59,7 @@ class ListFoodVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupSearchController()
         
         view.showActivityIndicator()
     }
@@ -75,6 +89,16 @@ extension ListFoodVC {
         navigationItem.largeTitleDisplayMode = .never
     }
     
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        
+        navigationItem.searchController = searchController
+        
+        definesPresentationContext = true
+    }
+    
     func setupTableView() {
         listFoodTableView.showsVerticalScrollIndicator = false
         listFoodTableView.layer.opacity = 0
@@ -91,13 +115,26 @@ extension ListFoodVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.foodRecipes.count
+        if isFiltering {
+            return filteredFoodRecipes.count
+        }
+        
+       return presenter.foodRecipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListFoodCell
         
-        let foodRecipes = presenter.foodRecipes[indexPath.row]
+        var foodRecipes: Hit
+        
+//        let foodRecipes = presenter.foodRecipes[indexPath.row]
+        
+        if isFiltering {
+            foodRecipes = filteredFoodRecipes[indexPath.row]
+        } else {
+            foodRecipes = presenter.foodRecipes[indexPath.row]
+        }
+
         cell.config(recipe: foodRecipes.recipe)
         
         return cell 
@@ -146,5 +183,19 @@ extension ListFoodVC: ListFoodVCProtocol {
                 self.emptyLabel.isHidden = !self.presenter.foodRecipes.isEmpty
             }
         }
+    }
+}
+
+extension ListFoodVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(searchText: String) {
+        filteredFoodRecipes = presenter.foodRecipes.filter({ (hits: Hit) -> Bool in
+            return hits.recipe.label.lowercased().contains(searchText.lowercased())
+        })
+        
+        listFoodTableView.reloadData()
     }
 }
