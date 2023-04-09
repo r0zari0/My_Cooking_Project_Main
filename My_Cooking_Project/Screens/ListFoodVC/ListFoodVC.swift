@@ -25,9 +25,7 @@ class ListFoodVC: UIViewController {
     @IBOutlet weak var listFoodTableView: UITableView!
     
     // MARK: - Properties
-    
-    var filteredFoodRecipes: [Hit] = []
-    
+
     var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
@@ -111,39 +109,23 @@ extension ListFoodVC {
 
 extension ListFoodVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let foodRecipe: Hit
-        
-        if isFiltering {
-            foodRecipe = filteredFoodRecipes[indexPath.row]
-        } else {
-            foodRecipe = presenter.foodRecipes[indexPath.row]
-        }
-        
-        presenter.showRecipeDetailsVC(view: self, recipe: foodRecipe.recipe) 
+        let foodRecipe: Hit = presenter.generalRecipes[indexPath.row]
+
+        presenter.showRecipeDetailsVC(view: self, recipe: foodRecipe.recipe)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return filteredFoodRecipes.count
-        }
-        
-       return presenter.foodRecipes.count
+        presenter.generalRecipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListFoodCell
         
-        var foodRecipes: Hit
-        
-        if isFiltering {
-            foodRecipes = filteredFoodRecipes[indexPath.row]
-        } else {
-            foodRecipes = presenter.foodRecipes[indexPath.row]
-        }
+        let foodRecipes: Hit = presenter.generalRecipes[indexPath.row]
 
         cell.config(recipe: foodRecipes.recipe)
         
-        return cell 
+        return cell
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -186,7 +168,7 @@ extension ListFoodVC: ListFoodVCProtocol {
             self.listFoodTableView.layer.opacity = 1
             
             if self.presenter.screenType == .favoriteRecipe {
-                self.emptyLabel.isHidden = !self.presenter.foodRecipes.isEmpty
+                self.emptyLabel.isHidden = !self.presenter.generalRecipes.isEmpty
             }
         }
     }
@@ -194,14 +176,9 @@ extension ListFoodVC: ListFoodVCProtocol {
 
 extension ListFoodVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchText: searchController.searchBar.text!)
-    }
-    
-    private func filterContentForSearchText(searchText: String) {
-        filteredFoodRecipes = presenter.foodRecipes.filter({ (hits: Hit) -> Bool in
-            return hits.recipe.label.lowercased().contains(searchText.lowercased())
-        })
-        
-        listFoodTableView.reloadData()
+        presenter.filterContentForSearchText(
+            searchText: searchController.searchBar.text ?? "",
+            isFiltering: isFiltering
+        )
     }
 }

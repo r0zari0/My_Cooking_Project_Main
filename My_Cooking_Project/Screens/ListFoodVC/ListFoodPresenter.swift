@@ -11,9 +11,10 @@ import UIKit
 // MARK: - Properties
 
 protocol ListFoodPresenterProtocol {
+    var generalRecipes: [Hit] { get }
     var screenType: ScreenType { get }
-    var foodRecipes: [Hit] { get }
     
+    func filterContentForSearchText(searchText: String, isFiltering: Bool)
     func deleteRecipeInDataBase(indexPath: IndexPath, closure: () -> Void)
     func getInternetRecipes()
     func getRecipesCD()
@@ -27,6 +28,7 @@ class ListFoodPresenter: ListFoodPresenterProtocol {
     // MARK: - Properties
     
     let screenType: ScreenType
+    var generalRecipes: [Hit] = []
     var foodRecipes: [Hit] = []
     weak var view: ListFoodVCProtocol?
     
@@ -34,6 +36,13 @@ class ListFoodPresenter: ListFoodPresenterProtocol {
     private var coreData: CoreDataStoreProtocol
     private let navigator: NavigatorProtocol
     private let networking: NetworkingProtocol
+    
+    private var filteredFoodRecipes: [Hit] = []
+    private var isFiltering: Bool = false {
+        didSet {
+            generalRecipes = isFiltering ? filteredFoodRecipes : foodRecipes
+        }
+    }
     
     // MARK: - Init
     
@@ -57,9 +66,9 @@ class ListFoodPresenter: ListFoodPresenterProtocol {
 extension ListFoodPresenter {
     func getInternetRecipes() {
         view?.setupTitle(title: type.rawValue + " recipes")
-        networking.getModel(type: type) { hit in
-            self.foodRecipes = hit
-            self.view?.reload()
+        networking.getModel(type: type) { [weak self] hit in
+            self?.foodRecipes = hit
+            self?.view?.reload()
         }
     }
     
@@ -84,5 +93,15 @@ extension ListFoodPresenter {
         coreData.saveContext()
         
         closure()
+    }
+    
+    // MARK: - Search
+    
+    func filterContentForSearchText(searchText: String, isFiltering: Bool) {
+        filteredFoodRecipes = foodRecipes.filter { $0.recipe.label.lowercased().contains(searchText.lowercased())
+        }
+        
+        self.isFiltering = isFiltering
+        view?.reload()
     }
 }
