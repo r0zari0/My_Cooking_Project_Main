@@ -68,6 +68,7 @@ extension ListFoodPresenter {
         view?.setupTitle(title: type.rawValue + " recipes")
         networking.getModel(type: type) { [weak self] hit in
             self?.foodRecipes = hit
+            self?.generalRecipes = hit
             self?.view?.reload()
         }
     }
@@ -88,9 +89,7 @@ extension ListFoodPresenter {
     func deleteRecipeInDataBase(indexPath: IndexPath, closure: () -> Void) {
         
         coreData.deleteRecipe(label: foodRecipes[indexPath.row].recipe.label)
-        foodRecipes.remove(at: indexPath.row)
-        
-        coreData.saveContext()
+        generalRecipes.remove(at: indexPath.row)
         
         closure()
     }
