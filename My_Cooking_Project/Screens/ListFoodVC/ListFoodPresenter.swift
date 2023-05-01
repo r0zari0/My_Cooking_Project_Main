@@ -78,6 +78,7 @@ extension ListFoodPresenter {
             let likedRecipes = recipe.map(Recipe.init(recipe:))
             let hits = likedRecipes.map { Hit(recipe: $0) }
             self?.foodRecipes = hits
+            self?.generalRecipes = hits
             self?.view?.reload()
         }
     }
