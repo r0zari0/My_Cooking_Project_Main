@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 enum RecipeType: String, CaseIterable {
-    case meat = "Meat"
-    case fish = "Fish"
-    case chicken = "Chicken"
-    case milk = "Milk"
+    case meat = "meat"
+    case fish = "fish"
+    case chicken = "chicken"
+    case milk = "milk"
     
     var partURL: String {
         switch self {

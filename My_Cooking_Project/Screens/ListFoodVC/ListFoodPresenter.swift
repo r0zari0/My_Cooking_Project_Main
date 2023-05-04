@@ -89,8 +89,9 @@ extension ListFoodPresenter {
     
     func deleteRecipeInDataBase(indexPath: IndexPath, closure: () -> Void) {
         
-        coreData.deleteRecipe(label: foodRecipes[indexPath.row].recipe.label)
+        coreData.deleteRecipe(label: generalRecipes[indexPath.row].recipe.label)
         generalRecipes.remove(at: indexPath.row)
+        foodRecipes.remove(at: indexPath.row)
         
         closure()
     }
